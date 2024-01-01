@@ -13,17 +13,15 @@ function objToCSV(games) {
         if (parseFloat(g.HoursPlayed) !== 0) {
             return false;
         }
-
         return true;
     });
 
     return filteredGames.map(g => {
-        // Remove anything that matches the pattern (####), where #### is a sequence of digits
-        // let cleanedName = g.Name.replace(/\(\d+\)/g, '').replace(/™/g, '').replace(/®/g, '');
+  
         let cleanedName = g.Name.replace(/™/g, '').replace(/®/g, '');
 
         // Replace "GOTY Edition" and "Game Of The Year Edition" with an empty string
-        cleanedName = cleanedName.replace(/GOTY Edition/gi, '').replace(/Game Of The Year Edition/gi, '').replace(/(1993)/gi, '1993');
+        //cleanedName = cleanedName.replace(/GOTY Edition/gi, '').replace(/Game Of The Year Edition/gi, '').replace(/(1993)/gi, '1993');
 
         return "\"" + cleanedName.trim() + '\",' + g.appID;
     }).join('\n');
@@ -56,4 +54,4 @@ async function fetchData() {
     }
 }
 
-export { fetchData, gameList, outputPath, SteamUser };
+export { fetchData, SteamUser };

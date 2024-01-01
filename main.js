@@ -1,7 +1,8 @@
-import { fetchData, gameList, outputPath } from './GameCollector.js';
+import { fetchData } from './GameCollector.js';
 import { timeDataResult } from './HowLongToBeat.js';
 import { reviewDataResult } from './SteamReviews.js';
 import { finalSortResult } from './FinalSort.js';
+import { gameList, outputPath } from './variables.js';
 
 async function run() {
   try {
